@@ -31,6 +31,8 @@ Copy-Item frontend/.env.example frontend/.env
 
 フロントエンドのAPI接続先は `VITE_API_BASE_URL` で指定できます。ローカル開発では `/api`（Viteのプロキシ）を使います。デプロイ時はフロントエンドのホスティング設定に、バックエンドURLと `/api` を含めた値（例: `https://api.example.com/api`）を登録して再ビルドしてください。この値はブラウザーに配信されるため、秘密情報を設定しないでください。バックエンドの `CORS_ORIGIN` にはフロントエンドの公開URLを設定します。
 
+フロントエンドとバックエンドが別サイトで、ログイン後もAPIが401を返す場合は、バックエンドの `COOKIE_SAME_SITE` を `none` に設定してください。この場合CookieはHTTPSでのみ送信されます。`CORS_ORIGIN` には引き続きフロントエンドのURLを正確に設定してください。
+
 依存パッケージをインストールします。
 
 ```powershell

@@ -1,10 +1,13 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
+const cookieSameSite = (process.env.COOKIE_SAME_SITE || "lax").toLowerCase();
+const cookieSecure = process.env.NODE_ENV === "production" || cookieSameSite === "none";
+
 const cookieOptions = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
-  sameSite: "lax",
+  secure: cookieSecure,
+  sameSite: cookieSameSite,
   path: "/",
   maxAge: 7 * 24 * 60 * 60 * 1000,
 };
@@ -50,7 +53,12 @@ async function login(req, res, next) {
 }
 
 function logout(_req, res) {
-  res.clearCookie("token", { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", path: "/" });
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: cookieSecure,
+    sameSite: cookieSameSite,
+    path: "/",
+  });
   return res.json({ message: "ログアウトしました。" });
 }
 
