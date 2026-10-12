@@ -1,0 +1,18 @@
+.usage-page { max-width: 850px; }
+.usage-heading { margin-bottom: 30px; }
+.usage-heading .page-title { margin-bottom: 12px; }
+.usage-guide-list { display: grid; gap: 13px; margin: 0; padding: 0; list-style: none; }
+.usage-guide-card { display: flex; align-items: flex-start; gap: 19px; padding: 23px; border: 1px solid #efe6d7; border-radius: 18px; background: #fffefa; }
+.usage-guide-card:nth-child(2) { background: #fff6e3; }
+.usage-guide-card:nth-child(3) { background: #f2eefb; }
+.usage-guide-card:nth-child(4) { background: #edf7ed; }
+.usage-guide-number { display: grid; width: 39px; height: 39px; flex: 0 0 auto; place-items: center; border-radius: 50%; background: #ffe1d6; color: var(--coral-dark); font-family: var(--mono); font-size: 12px; font-weight: 800; }
+.usage-guide-copy h2 { margin: 1px 0 7px; color: var(--navy); font-size: 16px; }
+.usage-guide-copy p { margin: 0 0 12px; color: #667b8c; font-size: 12px; line-height: 1.9; }
+.usage-guide-copy a { color: var(--coral-dark); font-size: 11px; font-weight: 800; text-decoration: none; }
+.usage-guide-copy a:hover { text-decoration: underline; }
+.usage-privacy-note { display: flex; align-items: center; gap: 14px; margin-top: 20px; padding: 18px 20px; border-radius: 16px; background: #e7def8; color: #695b91; }
+.usage-privacy-note > span { font-size: 24px; }
+.usage-privacy-note p { margin: 0; font-size: 11px; line-height: 1.8; }
+.usage-privacy-note strong { color: #4f426f; }
+@media (max-width: 520px) { .usage-guide-card { gap: 13px; padding: 18px; } .usage-guide-number { width: 33px; height: 33px; } }

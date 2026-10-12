@@ -1,0 +1,88 @@
+.public-page { width: min(100%, 1040px); }
+
+.public-page-heading {
+  position: relative;
+  overflow: hidden;
+  margin: 4px 0 27px;
+  padding: clamp(28px, 5vw, 48px);
+  border-radius: 24px;
+  background: #e7def8;
+}
+
+.public-page-heading::after {
+  position: absolute;
+  top: -54px;
+  right: -8px;
+  width: 190px;
+  height: 190px;
+  border: 20px solid rgb(255 255 255 / 45%);
+  border-radius: 50%;
+  content: '';
+}
+
+.public-page-heading > * { position: relative; z-index: 1; }
+.public-page-heading .page-eyebrow { color: #695b91; }
+.public-page-heading .page-title { margin-bottom: 12px; }
+.public-page-heading .page-description { max-width: 560px; }
+
+.public-page-search {
+  width: min(100%, 470px);
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 23px;
+  padding: 0 16px;
+  border: 1px solid rgb(23 50 77 / 9%);
+  border-radius: 999px;
+  background: #fffefa;
+  color: #7969a4;
+}
+
+.public-page-search > span { font-size: 22px; }
+.public-page-search input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--navy); font-size: 12px; }
+.public-page-search input::placeholder { color: #9aa6af; }
+
+.public-tag-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.public-tag-filters button { min-height: 31px; padding: 5px 13px; border: 1px solid #e8e1d5; border-radius: 999px; background: #fffefa; color: #667b8c; font-size: 10px; font-weight: 700; }
+.public-tag-filters button:hover, .public-tag-filters button.selected { border-color: #c5b7e5; background: #eee8fa; color: #695b91; }
+
+.public-memo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+
+.public-memo-card {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #efe6d7;
+  border-radius: 19px;
+  background: #fffefa;
+  box-shadow: 0 7px 18px rgb(23 50 77 / 4%);
+}
+
+.public-memo-card:nth-child(4n + 2) { background: #fff6e3; }
+.public-memo-card:nth-child(4n + 3) { background: #f2eefb; }
+.public-memo-card:nth-child(4n + 4) { background: #edf7ed; }
+.public-memo-topline { display: flex; justify-content: space-between; gap: 10px; color: #82919d; font-family: var(--mono); font-size: 8px; letter-spacing: .4px; }
+.public-memo-topline span { color: var(--coral-dark); font-weight: 700; }
+.public-memo-card h2 { margin: 20px 0 9px; color: var(--navy); font-size: 17px; font-weight: 800; overflow-wrap: anywhere; }
+.public-memo-content { flex: 1; margin: 0 0 16px; color: #667b8c; font-size: 12px; line-height: 1.8; overflow-wrap: anywhere; white-space: pre-wrap; }
+.public-memo-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.public-memo-tags span { padding: 4px 9px; border-radius: 999px; background: #eee8fa; color: #695b91; font-size: 9px; font-weight: 700; }
+.public-memo-author { display: flex; align-items: center; gap: 8px; padding-top: 11px; border-top: 1px solid rgb(23 50 77 / 9%); color: #536b7d; font-size: 10px; font-weight: 700; }
+.author-avatar { display: grid; width: 24px; height: 24px; place-items: center; border-radius: 50%; background: #ffe1d6; color: var(--coral-dark); font-size: 11px; }
+.public-like-button { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; padding: 6px 10px; border: 1px solid #f0dcd5; border-radius: 999px; background: #fffefa; color: #82919d; font-size: 11px; font-weight: 800; transition: transform 140ms ease, background 140ms ease, color 140ms ease; }
+.public-like-button:hover:not(:disabled) { transform: translateY(-1px); background: #fff0eb; color: var(--coral-dark); }
+.public-like-button.is-liked { border-color: #ffc5b5; background: #ffe9e2; color: var(--coral-dark); }
+.public-like-button:disabled { cursor: wait; opacity: .7; }
+
+.public-empty { min-height: 270px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px; color: #82919d; text-align: center; }
+.public-empty > span:not(.loading-mark) { margin-bottom: 10px; color: #8e7aba; font-size: 34px; }
+.public-empty h2 { margin: 0 0 8px; color: var(--navy); font-size: 16px; }
+.public-empty p { margin: 0; font-size: 12px; }
+
+@media (max-width: 650px) {
+  .public-page-heading { border-radius: 18px; }
+  .public-page-heading::after { right: -80px; opacity: .65; }
+  .public-memo-grid { grid-template-columns: 1fr; }
+}
